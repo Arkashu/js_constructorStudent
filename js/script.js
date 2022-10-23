@@ -25,10 +25,10 @@ function Student (name, lastName, birthYear) {
     this.summary = function () {
         const averageMark = this.estimates.reduce((a, b) => {
             return (a + b)
-        }) / this.estimates.length;
+        }) / (this.estimates.length - this.estimates.filter(arg => { return arg === null}).length)
         const averagePresent = this.attendance.filter((element) => {
             return element === true
-        }).length / this.attendance.length;
+        }).length / (this.attendance.length - this.attendance.filter(arg2 => { return arg2 === null}).length);
         if (averageMark >= 9 && averagePresent >= 0.9) return 'Ути какой молодчинка!';
         if (averageMark < 9 && averagePresent < 0.9) return 'Редиска!';
         return 'Норм, но можно лучше';
@@ -36,25 +36,21 @@ function Student (name, lastName, birthYear) {
 
 }
 const student_test = new Student('Vova', 'Cooper', 1990);
-console.log(student_test)
-student_test.present()
-student_test.present()
-student_test.present()
-student_test.present()
-student_test.present()
 student_test.present()
 student_test.present()
 student_test.absent()
 student_test.present()
 student_test.present()
 student_test.present()
-student_test.mark(9)
+student_test.present()
+student_test.present()
+student_test.present()
 student_test.mark(10)
 student_test.mark(10)
-student_test.mark(10)
-student_test.mark(6)
-student_test.mark(10)
-student_test.mark(8)
+student_test.mark(2)
+student_test.mark(2)
+student_test.mark(2)
+student_test.mark(2)
 student_test.mark(10)
 student_test.mark(10)
 student_test.mark(9)
